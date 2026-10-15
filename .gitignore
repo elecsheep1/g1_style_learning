@@ -8,18 +8,14 @@
 **/*.dmp
 **/.thumbs
 
-# No USD files allowed in the repo
-**/*.usd
-**/*.usda
-**/*.usdc
-**/*.usdz
+# Robot USD assets are runtime dependencies; keep them versioned via Git LFS.
 
 # Python
 .DS_Store
 **/*.egg-info/
 **/__pycache__/
 **/.pytest_cache/
-**/*.pyc
+*.py[cod]
 **/*.pb
 
 # Docker/Singularity
@@ -64,9 +60,6 @@ _build
 # Teleop Recorded Dataset
 /datasets/
 
-# Tests
-/tests/
-
 # Docker history
 .isaac-lab-docker-history
 
@@ -80,11 +73,16 @@ _build
 # Ruff cache
 **/.ruff_cache/
 
-# Dev-time files, generated stuff
-**/__*
-
 # Isaac Lab CI environments in native mode
 **/_isaaclab_install_ci_*
 
 # Superpowers (Claude Code plugin artifacts)
 docs/superpowers/
+
+# Local Python environments and secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.python.env
